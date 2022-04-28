@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const mongoose = require('mongoose');
+const mysql_connector = require('mysql')
 
 const Question = require('./models/Question') // includes our model
 const Subject = require('./models/Subject')
@@ -72,7 +72,7 @@ router.put('/questions/:id', async (req, res) => {
                 question.alternatives = alternatives
             }
             if (subjects) {
-                question.subjects = subjects.map((subject) => mongoose.Types.ObjectId(subject))
+                question.subjects = subjects.map((subject) => mysql_connector.Types.ObjectId(subject))
             }
             await question.save()
             return res.status(200).json(question)

@@ -1,7 +1,7 @@
-const mongoose = require('mongoose')
+const mysql_connector = require('mysql')
 
-const SubjectSchema = new mongoose.Schema({
+const SubjectSchema = new mysql_connector.Schema({
     name: String
 })
 
-module.exports = mongoose.model('Subject', SubjectSchema)
+module.exports = mysql_connector.model('Subject', SubjectSchema)

@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
+const mysql_connector = require('mysql')
 
-const QuestionSchema = new mongoose.Schema({
+const QuestionSchema = new mysql_connector.Schema({
     description: String,
     alternatives: [
         {
@@ -16,10 +16,10 @@ const QuestionSchema = new mongoose.Schema({
         }
     ],
     subjects: [{
-        type: mongoose.Schema.Types.ObjectId,
+        type: mysql_connector.Schema.Types.ObjectId,
         ref: 'Subject',
         required: false
     }]
 })
 
-module.exports = mongoose.model('Question', QuestionSchema)
+module.exports = mysql_connector.model('Question', QuestionSchema)
